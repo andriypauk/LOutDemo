@@ -1,1 +1,52 @@
+<html>
 
+<style>
+
+  a {
+    color: orange;
+  }
+
+</style>
+
+<script src="https://padev2-dev-ed.my.salesforce.com/lightning/lightning.out.js"></script>
+
+<div data-lightning-out="true"></div>
+
+  <script>
+
+    const appName = 'c:lightningOutAppDemo2';
+    const componentName = 'c:lightningOutAura';
+    const lightningEndpoint = 'https://padev2-dev-ed.my.salesforce.com';
+    const targetElement = document.querySelector("[data-lightning-out]");
+    const authToken = '00D0Y000002Iliy!AQYAQNqIqmWF.qqX3mE4u9kwl7oXTBNjy9r3sXQfiKZTPZFxV55AQuXXzbRSOOJG6zRCvbZw3ynC_cXEYtd8BPD77MLc0H0h'; // example need to change to our own 
+    const componentAttributes = {
+
+    };
+    
+    function Test(){
+  
+      console.log('lightning component created222');
+    }
+    Test();
+
+    $Lightning.use(
+            appName,
+            authToken,
+            function (){
+              $Lightning.createComponent(
+                      componentName,
+                      componentAttributes,
+                      targetElement,
+                      function (cmp){
+                        console.log('lightning component created');
+                      }
+              );
+            },
+            lightningEndpoint
+    );
+
+
+  </script>
+
+
+</html>
