@@ -1,0 +1,65 @@
+<html>
+
+<style>
+
+  a {
+    color: orange;
+  }
+
+</style>
+
+<script src="https://padev2-dev-ed.develop.my.site.com/lightning/lightning.out.js"></script>
+
+<div data-lightning-out="true"></div>
+
+  <script>
+
+    const appName = 'c:lightningOutAppDemo';
+    //const componentName = 'c:lightingOutDemo';
+    const componentName = 'c:ExternalEventHandler';
+    
+    const lightningEndpoint = 'https://padev2-dev-ed.develop.my.site.com';
+    const targetElement = document.querySelector("[data-lightning-out]");
+   // const authToken = '00D0Y000002Iliy!AQYAQNqIqmWF.qqX3mE4u9kwl7oXTBNjy9r3sXQfiKZTPZFxV55AQuXXzbRSOOJG6zRCvbZw3ynC_cXEYtd8BPD77MLc0H0h'; // example need to change to our own 
+    const componentAttributes = {
+      firstName: 'TestFirstNameFromPublicSite', lastName: 'TestLastNameFromPublicSite', 
+      email: 'test@Company.com', company: 'Test Company From Site'
+
+    };
+
+    $Lightning.use(
+            appName,
+            function (){
+              $Lightning.createComponent(
+                      componentName,
+                      componentAttributes,
+                      targetElement,
+                      function (cmp){
+                        console.log('lightning component created');
+
+
+                        // Fire a custom event to the Lightning component
+
+                        var eventData = {
+                            firstName: 'TestFirstNameFromPublicSite', lastName: 'TestLastNameFromPublicSite', 
+                            email: 'test@Company.com', company: 'Test Company From Site'
+
+                        };
+                        var event = $A.get("e.c:ExternalEvent");
+                        event.setParams({
+                            "data": eventData
+                        });
+                        event.fire();
+
+                        
+                      }
+              );
+            },
+            lightningEndpoint
+    );
+
+
+  </script>
+
+
+</html>
