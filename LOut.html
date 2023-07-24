@@ -76,6 +76,11 @@
                            
                    // };
 
+                        var message = {
+                              message: "Hello from External Web Page!"
+                        };
+                cmp.messageContext = new (window.LightningElement || window.lwc).MessageContext();
+                cmp.messageContext.publish(MY_MESSAGE_CHANNEL, message);
 
                         
                        
