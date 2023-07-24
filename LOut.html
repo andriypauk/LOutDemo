@@ -64,7 +64,7 @@
                       componentAttributes,
                       targetElement,
                       function (cmp){
-                        console.log('lightning component created OUT 999');
+                        console.log('lightning component created OUT 9990');
 
                         //console.log('eventData>>> ' + eventData);
                         // Fire a custom event to the Lightning component
@@ -77,7 +77,7 @@
                    // };
 
                          var message = {
-                    messagetxt: "Hello from External Web Page!"
+                    message: "Hello from External Web Page!"
                 };
                 cmp.messageContext = new (window.LightningElement || window.lwc).MessageContext();
                 cmp.messageContext.publish(MY_MESSAGE_CHANNEL, message);
