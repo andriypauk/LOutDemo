@@ -45,9 +45,16 @@
                             email: 'test@Company.com', company: 'Test Company From Site'
 
                         };
+                        var eventData2= {
+                            firstName2: 'TestFirstNameFromPublicSite', lastName2: 'TestLastNameFromPublicSite', 
+                            email2: 'test@Company.com', company2: 'Test Company From Site'
+
+                        };
                         var event = $A.get("e.c:ExternalEvent");
                         event.setParams({
-                            "data": eventData
+                            "data": eventData, 
+                            "data2": eventData2, 
+                          
                         });
                         event.fire();
 
