@@ -13,6 +13,29 @@
 <div data-lightning-out="true"></div>
 
   <script>
+        // Fire the custom event to the Lightning component
+        function fireCustomEvent() {
+            var eventData = {
+                // Define your event data here
+                key: "value",
+                // ... other event data ...
+            };
+            
+            // Create the event object
+            var event = new CustomEvent("fireExternalEvent", { detail: eventData });
+            
+            // Dispatch the event to the Lightning component
+            document.getElementById("lightning-container").dispatchEvent(event);
+        }
+
+        // Function to handle the response from the Lightning component
+        function handleResponse(responseData) {
+            // Process the response data from the Lightning component
+            console.log('Response from Lightning component: ', responseData);
+        }
+    </script>
+
+  <script>
 
     const appName = 'c:lightningOutAppDemo';
     const componentName = 'c:lightingOutDemo';
@@ -62,28 +85,7 @@
   </script>
 
 
-  <script>
-        // Fire the custom event to the Lightning component
-        function fireCustomEvent() {
-            var eventData = {
-                // Define your event data here
-                key: "value",
-                // ... other event data ...
-            };
-            
-            // Create the event object
-            var event = new CustomEvent("fireExternalEvent", { detail: eventData });
-            
-            // Dispatch the event to the Lightning component
-            document.getElementById("lightning-container").dispatchEvent(event);
-        }
-
-        // Function to handle the response from the Lightning component
-        function handleResponse(responseData) {
-            // Process the response data from the Lightning component
-            console.log('Response from Lightning component: ', responseData);
-        }
-    </script>
+  
 
 
 </html>
