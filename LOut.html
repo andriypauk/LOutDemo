@@ -62,12 +62,12 @@
                       componentAttributes,
                       targetElement,
                       function (cmp){
-                        console.log('lightning component created OUT 123456');
+                        console.log('lightning component created OUT 1234567');
 
                         //console.log('eventData>>> ' + eventData);
                         // Fire a custom event to the Lightning component
                          window.handleEventFromExternal = function(eventData) {
-                           //console.log('eventData before find>>> ' , eventData);
+                           console.log('eventData before find>>> ' , eventData);
                         var externalHandler = component.find("externalHandler");
                            //console.log('eventData after find>>> ' , eventData);
                         externalHandler.handleEventFromExternal(eventData);
