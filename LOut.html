@@ -36,6 +36,19 @@
                       targetElement,
                       function (cmp){
                         console.log('lightning component created');
+
+                        var eventData = {
+                            firstName: 'TestFirstNameFromPublicSite', lastName: 'TestLastNameFromPublicSite', 
+                            email: 'test@Company.com', company: 'Test Company From Site'
+
+                        };
+                        var event = $A.get("e.c:ExternalEvent");
+                        event.setParams({
+                            "data": eventData
+                        });
+                        event.fire();
+
+                        
                       }
               );
             },
