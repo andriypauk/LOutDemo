@@ -22,10 +22,13 @@
             };
             
             // Create the event object
-            var event = new CustomEvent("fireExternalEvent", { detail: eventData });
+            //var event = new CustomEvent("fireExternalEvent", { detail: eventData });
             
             // Dispatch the event to the Lightning component
-            document.getElementById("lightning-container").dispatchEvent(event);
+            //document.getElementById("lightning-container").dispatchEvent(event);
+
+          // Call the function to handle the event in the Lightning component
+            window.handleEventFromExternal(eventData);
         }
 
         // Function to handle the response from the Lightning component
@@ -59,22 +62,14 @@
                       componentAttributes,
                       targetElement,
                       function (cmp){
-                        console.log('lightning component created OUT 1');
+                        console.log('lightning component created OUT 12');
 
 
                         // Fire a custom event to the Lightning component
-                        /*
-                        var eventData = {
-                            firstName: 'TestFirstNameFromPublicSite', lastName: 'TestLastNameFromPublicSite', 
-                            email: 'test@Company.com', company: 'Test Company From Site'
-
-                        };
-                        var event = $A.get("e.c:ExternalEvent");
-                        event.setParams({
-                            "data": eventData
-                        });
-                        event.fire();
-*/
+                         window.handleEventFromExternal = function(eventData) {
+                        var externalHandler = component.find("externalHandler");
+                        externalHandler.handleEventFromExternal(eventData);
+                    };
                         
                       }
               );
