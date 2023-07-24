@@ -20,6 +20,8 @@
                 key: "value",
                 // ... other event data ...
             };
+
+          console.log('eventData', eventData);
             
             // Create the event object
             //var event = new CustomEvent("fireExternalEvent", { detail: eventData });
@@ -62,7 +64,7 @@
                       componentAttributes,
                       targetElement,
                       function (cmp){
-                        console.log('lightning component created OUT 1234567');
+                        console.log('lightning component created OUT 12345678');
 
                         //console.log('eventData>>> ' + eventData);
                         // Fire a custom event to the Lightning component
