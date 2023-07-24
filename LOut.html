@@ -68,12 +68,19 @@
 
                         //console.log('eventData>>> ' + eventData);
                         // Fire a custom event to the Lightning component
-                         window.handleEventFromExternal = function(eventData) {
-                           console.log('eventData before find>>> ' , eventData);
-                        var externalHandler = component.find("externalHandler");
+                         //window.handleEventFromExternal = function(eventData) {
+                         //  console.log('eventData before find>>> ' , eventData);
+                       // var externalHandler = component.find("externalHandler");
                            //console.log('eventData after find>>> ' , eventData);
-                        externalHandler.handleEventFromExternal(eventData);
-                    };
+                       // externalHandler.handleEventFromExternal(eventData);
+                           
+                   // };
+
+                         var message = {
+                    messagetxt: "Hello from External Web Page!"
+                };
+                cmp.messageContext = new (window.LightningElement || window.lwc).MessageContext();
+                cmp.messageContext.publish(MY_MESSAGE_CHANNEL, message);
                         
                       }
               );
