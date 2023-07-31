@@ -1,0 +1,13 @@
+<button onclick="triggerCustomEvent()">Trigger Custom Event</button>
+
+<script>
+    function triggerCustomEvent() {
+        var eventData = "Hello from public site!";
+        console.log('eventData ' , eventData);
+        var lwc = document.querySelector('c-event-receiver');
+        console.log('lwc ' , lwc);
+
+        // Dispatch the custom event to the "EventReceiver" LWC
+        lwc.dispatchEvent(new CustomEvent('customEvent', { detail: eventData }));
+    }
+</script>
