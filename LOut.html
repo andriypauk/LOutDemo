@@ -38,7 +38,17 @@
             // Process the response data from the Lightning component
         //    console.log('Response from Lightning component: ', responseData);
         //}
-
+      // Code in your external application
+      // Replace 'yourData' with the actual data you want to pass to the LWC component
+      const eventData = { someKey: 'yourData' };
+      
+      // Create a custom event
+      const customEvent = new CustomEvent('customEventName', {
+        detail: eventData
+      });
+      
+      // Dispatch the custom event to the Lightning Out app (embedded LWC component)
+      window.postMessage(customEvent, '*');
 
        
     </script>
