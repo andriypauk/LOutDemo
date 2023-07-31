@@ -47,8 +47,7 @@
         detail: eventData
       });
       
-      // Dispatch the custom event to the Lightning Out app (embedded LWC component)
-      window.postMessage(customEvent, '*');
+      
 
        
     </script>
@@ -77,7 +76,7 @@
                       componentAttributes,
                       targetElement,
                       function (cmp){
-                        console.log('lightning component created OUT 99');
+                        console.log('lightning component created OUT 909');
 
                         //console.log('eventData>>> ' + eventData);
                         // Fire a custom event to the Lightning component
@@ -88,7 +87,8 @@
                        // externalHandler.handleEventFromExternal(eventData);
                            
                    // };
-
+                      // Dispatch the custom event to the Lightning Out app (embedded LWC component)
+      window.postMessage(customEvent, '*');
 
                          
 
