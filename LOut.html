@@ -11,6 +11,13 @@
 <script src="https://padev2-dev-ed.develop.my.site.com/lightning/lightning.out.js"></script>
 
 
+
+
+    <!-- Container for the Lightning Out app -->
+    <div id="lightningOutAppContainer"></div>
+    
+
+
 <div id="lightning-container"></div>
   <script>
         // Fire the custom event to the Lightning component
@@ -49,12 +56,17 @@
   <div data-lightning-out="true"></div>
   <script>
 
+
+    function loadLightningOutApp() {
+
     const appName = 'c:lightningOutAppDemo';
     const componentName = 'c:lightingOutDemo';
     //const componentName = 'c:ExternalEventHandler';
     
     const lightningEndpoint = 'https://padev2-dev-ed.develop.my.site.com';
-    const targetElement = document.querySelector("[data-lightning-out]");
+    //const targetElement = document.querySelector("[data-lightning-out]");
+    const appContainer = document.getElementById('lightningOutAppContainer');
+
    // const authToken = '00D0Y000002Iliy!AQYAQNqIqmWF.qqX3mE4u9kwl7oXTBNjy9r3sXQfiKZTPZFxV55AQuXXzbRSOOJG6zRCvbZw3ynC_cXEYtd8BPD77MLc0H0h'; // example need to change to our own 
     const componentAttributes = {
       firstName: 'TestFirstNameFromPublicSite', lastName: 'TestLastNameFromPublicSite', 
@@ -68,9 +80,13 @@
               $Lightning.createComponent(
                       componentName,
                       componentAttributes,
-                      targetElement,
-                      function (cmp){
+                      appContainer,
+                      function (cmp,  status, errorMessage) => {
                         console.log('lightning component created OUT 9099');
+
+                         if (status !== 'SUCCESS') {
+                            console.error('Error creating component:', errorMessage);
+                        }
 
                         //console.log('eventData>>> ' + eventData);
                         // Fire a custom event to the Lightning component
@@ -81,15 +97,15 @@
                        // externalHandler.handleEventFromExternal(eventData);
                            
                    // };
-                                        const eventData = { someKey: 'yourData' };
+                      //                   const eventData = { someKey: 'yourData' };
                       
-                      // Create a custom event
-                      const customEvent = new CustomEvent('customEventName', {
-                        detail: eventData
-                      });
+                      // // Create a custom event
+                      // const customEvent = new CustomEvent('customEventName', {
+                      //   detail: eventData
+                      // });
       
-                      // Dispatch the custom event to the Lightning Out app (embedded LWC component)
-                      window.postMessage(customEvent, '*');
+                      // // Dispatch the custom event to the Lightning Out app (embedded LWC component)
+                      // window.postMessage(customEvent, '*');
 
                          
 
@@ -107,6 +123,10 @@
             },
             lightningEndpoint
     );
+
+    }
+
+    document.addEventListener('DOMContentLoaded', loadLightningOutApp);
 
 
   </script>
