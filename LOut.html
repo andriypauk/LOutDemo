@@ -40,12 +40,6 @@
         //}
       // Code in your external application
       // Replace 'yourData' with the actual data you want to pass to the LWC component
-      const eventData = { someKey: 'yourData' };
-      
-      // Create a custom event
-      const customEvent = new CustomEvent('customEventName', {
-        detail: eventData
-      });
       
       
 
@@ -76,7 +70,7 @@
                       componentAttributes,
                       targetElement,
                       function (cmp){
-                        console.log('lightning component created OUT 909');
+                        console.log('lightning component created OUT 9099');
 
                         //console.log('eventData>>> ' + eventData);
                         // Fire a custom event to the Lightning component
@@ -87,8 +81,15 @@
                        // externalHandler.handleEventFromExternal(eventData);
                            
                    // };
+                                        const eventData = { someKey: 'yourData' };
+                      
+                      // Create a custom event
+                      const customEvent = new CustomEvent('customEventName', {
+                        detail: eventData
+                      });
+      
                       // Dispatch the custom event to the Lightning Out app (embedded LWC component)
-      window.postMessage(customEvent, '*');
+                      window.postMessage(customEvent, '*');
 
                          
 
