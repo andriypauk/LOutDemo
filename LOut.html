@@ -61,8 +61,8 @@
     //const componentName = 'c:ExternalEventHandler';
     
     const lightningEndpoint = 'https://padev2-dev-ed.develop.my.site.com';
-    //const targetElement = document.querySelector("[data-lightning-out]");
-    const appContainer = document.getElementById('lightningOutAppContainer');
+    const targetElement = document.querySelector("[data-lightning-out]");
+    //const appContainer = document.getElementById('lightningOutAppContainer');
 
    // const authToken = '00D0Y000002Iliy!AQYAQNqIqmWF.qqX3mE4u9kwl7oXTBNjy9r3sXQfiKZTPZFxV55AQuXXzbRSOOJG6zRCvbZw3ynC_cXEYtd8BPD77MLc0H0h'; // example need to change to our own 
     const componentAttributes = {
@@ -77,7 +77,7 @@
               $Lightning.createComponent(
                       componentName,
                       componentAttributes,
-                      appContainer,
+                      targetElement,
                       function (cmp,  status, errorMessage) => {
                         console.log('lightning component created OUT 999');
                         console.log('status' , status);
@@ -133,6 +133,8 @@
 <script>
     function triggerCustomEvent() {
         var eventData = "Hello from public site!";
+      console.log('eventData >>> ' , eventData );
+
         $Lightning.get("c:lightingOutDemo").message("customEvent", eventData);
     }
 </script>
