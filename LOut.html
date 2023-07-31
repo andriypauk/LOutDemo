@@ -14,7 +14,7 @@
 <div id="lightning-container"></div>
   <script>
         // Fire the custom event to the Lightning component
-        function fireCustomEvent() {
+       /* function fireCustomEvent() {
             var eventData = {
                 // Define your event data here
                 key: "value",
@@ -32,12 +32,15 @@
           // Call the function to handle the event in the Lightning component
             window.handleEventFromExternal(eventData);
         }
-
+  */
         // Function to handle the response from the Lightning component
-        function handleResponse(responseData) {
+        //function handleResponse(responseData) {
             // Process the response data from the Lightning component
-            console.log('Response from Lightning component: ', responseData);
-        }
+        //    console.log('Response from Lightning component: ', responseData);
+        //}
+
+
+       
     </script>
 
   <div data-lightning-out="true"></div>
@@ -76,11 +79,22 @@
                            
                    // };
 
-                        var message = {
-                              message: "Hello from External Web Page!"
-                        };
+
+                         const eventData = { someKey: 'yourData' };
+    
+                        // Create a custom event
+                        const customEvent = new CustomEvent('customEventName', {
+                          detail: eventData
+                        });
+                        
+                        // Dispatch the custom event to the LWC component
+                        window.postMessage(customEvent, '*');
+
+                        // var message = {
+                        //       message: "Hello from External Web Page!"
+                        // };
                        
-                cmp.messageContext.publish(MY_MESSAGE_CHANNEL, message);
+                // cmp.messageContext.publish(MY_MESSAGE_CHANNEL, message);
 
                         
                        
