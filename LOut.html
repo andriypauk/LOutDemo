@@ -16,8 +16,7 @@
     <!-- Container for the Lightning Out app -->
     <div id="lightningOutAppContainer"></div>
     
-
-
+  
 <div id="lightning-container"></div>
   <script>
         // Fire the custom event to the Lightning component
@@ -80,7 +79,7 @@
                       componentAttributes,
                       appContainer,
                       function (cmp,  status, errorMessage) => {
-                        console.log('lightning component created OUT 90-0099');
+                        console.log('lightning component created OUT 999');
                         console.log('status' , status);
 
                          if (status !== 'SUCCESS') {
@@ -127,6 +126,16 @@
 
   </script>
 
+
+  <!-- On your public site -->
+<button onclick="triggerCustomEvent()">Trigger Custom Event</button>
+
+<script>
+    function triggerCustomEvent() {
+        var eventData = "Hello from public site!";
+        $Lightning.get("c:EventContainer").message("customEvent", eventData);
+    }
+</script>
 
   
 
