@@ -12,7 +12,7 @@
         // Load the "EventContainer" Aura component through Lightning Out
         $Lightning.use("c:EventApp", function() {
             $Lightning.createComponent(
-                "c:EventContainer",
+                "c:eventReceiver",
                 {},
                 "lightningContainer",
                 function(cmp) {
@@ -32,6 +32,9 @@
     function triggerCustomEvent() {
         var eventData = "Hello from public site!";
         console.log('eventData' , eventData);
-        $Lightning.get("c:EventContainer").message("customEvent", eventData);
+        var lwc = document.querySelector('c-event-receiver');
+
+        // Dispatch the custom event to the "EventReceiver" LWC
+        lwc.dispatchEvent(new CustomEvent('customEvent', { detail: eventData }));
     }
 </script>
