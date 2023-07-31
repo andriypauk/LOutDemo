@@ -1,0 +1,25 @@
+
+<html>
+<head>
+    <title>Public Site with Lightning Out</title>
+    <!-- Include Lightning Out JS script -->
+    <script src="https://your-domain.lightning.force.com/lightning/lightning.out.js"></script>
+</head>
+<body>
+    <div id="lightningContainer"></div>
+
+    <script>
+        // Load the "EventContainer" Aura component through Lightning Out
+        $Lightning.use("c:EventApp", function() {
+            $Lightning.createComponent(
+                "c:EventContainer",
+                {},
+                "lightningContainer",
+                function(cmp) {
+                    // Component loaded
+                }
+            );
+        });
+    </script>
+</body>
+</html>
