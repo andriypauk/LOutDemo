@@ -45,13 +45,9 @@
                       componentName,
                       componentAttributes,
                       targetElement,
-                      function (cmp,  status, errorMessage) => {
+                      function (cmp) {
                         console.log('lightning component created OUT 99009');
-                        console.log('status' , status);
-
-                         if (status !== 'SUCCESS') {
-                            console.error('Error creating component:', errorMessage);
-                        }
+                        
 
                       }
               );
