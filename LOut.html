@@ -17,40 +17,7 @@
     <div id="lightningOutAppContainer"></div>
     
   
-<div id="lightning-container"></div>
-  <script>
-        // Fire the custom event to the Lightning component
-       /* function fireCustomEvent() {
-            var eventData = {
-                // Define your event data here
-                key: "value",
-                // ... other event data ...
-            };
-
-          console.log('eventData', eventData);
-            
-            // Create the event object
-            //var event = new CustomEvent("fireExternalEvent", { detail: eventData });
-            
-            // Dispatch the event to the Lightning component
-            //document.getElementById("lightning-container").dispatchEvent(event);
-
-          // Call the function to handle the event in the Lightning component
-            window.handleEventFromExternal(eventData);
-        }
-  */
-        // Function to handle the response from the Lightning component
-        //function handleResponse(responseData) {
-            // Process the response data from the Lightning component
-        //    console.log('Response from Lightning component: ', responseData);
-        //}
-      // Code in your external application
-      // Replace 'yourData' with the actual data you want to pass to the LWC component
-      
-      
-
-       
-    </script>
+    <div id="lightning-container"></div>
 
   <div data-lightning-out="true"></div>
   <script>
@@ -79,42 +46,12 @@
                       componentAttributes,
                       targetElement,
                       function (cmp,  status, errorMessage) => {
-                        console.log('lightning component created OUT 999');
+                        console.log('lightning component created OUT 99009');
                         console.log('status' , status);
 
                          if (status !== 'SUCCESS') {
                             console.error('Error creating component:', errorMessage);
                         }
-
-                        //console.log('eventData>>> ' + eventData);
-                        // Fire a custom event to the Lightning component
-                         //window.handleEventFromExternal = function(eventData) {
-                         //  console.log('eventData before find>>> ' , eventData);
-                       // var externalHandler = component.find("externalHandler");
-                           //console.log('eventData after find>>> ' , eventData);
-                       // externalHandler.handleEventFromExternal(eventData);
-                           
-                   // };
-                      //                   const eventData = { someKey: 'yourData' };
-                      
-                      // // Create a custom event
-                      // const customEvent = new CustomEvent('customEventName', {
-                      //   detail: eventData
-                      // });
-      
-                      // // Dispatch the custom event to the Lightning Out app (embedded LWC component)
-                      // window.postMessage(customEvent, '*');
-
-                         
-
-                        // var message = {
-                        //       message: "Hello from External Web Page!"
-                        // };
-                       
-                // cmp.messageContext.publish(MY_MESSAGE_CHANNEL, message);
-
-                        
-                       
 
                       }
               );
@@ -127,17 +64,6 @@
   </script>
 
 
-  <!-- On your public site -->
-<button onclick="triggerCustomEvent()">Trigger Custom Event</button>
-
-<script>
-    function triggerCustomEvent() {
-        var eventData = "Hello from public site!";
-      console.log('eventData >>> ' , eventData );
-
-        $Lightning.get("c:lightingOutDemo").message("customEvent", eventData);
-    }
-</script>
 
   
 
