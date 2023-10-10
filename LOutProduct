@@ -1,1 +1,43 @@
+<html>
 
+<script src="https://padev2-dev-ed.develop.lightning.force.com/lightning/lightning.out.js"></script>
+
+<div data-lightning-out="true"></div>
+
+  <script>
+
+    const appName = 'c:lightningOutAppDemo';
+    const componentName = 'c:lightingOutDemo';
+    const lightningEndpoint = 'https://padev2-dev-ed.develop.lightning.force.com';
+    const targetElement = document.querySelector("[data-lightning-out]");
+    //const authToken = '00DHn000001FJuR!ARAAQPlDV2PA1WY4Dc.JqiNhw79pRgMMeL0bqHPb2Tv7oWZi8Ih_fO0SkkAb7YDkDFxNLGc0Q2BYiAVbRYVpMRPiiwXu_.lf'; // example need to change to our own 
+    const authToken = '00DHn000001FJuR!ARAAQPv8nKfRB1A2IP3MOkaqoxTGdnPkowpwhFxj0h7kJob.aqBC4zd1Pmnf48brexqEQjSXgou_Usx98Vdos4xnz2S.CM3e';
+    const componentAttributes = {};
+    
+    function Test(){
+  
+      console.log('lightning component before created');
+    }
+    Test();
+
+    $Lightning.use(
+            appName,
+            function (){
+              $Lightning.createComponent(
+                      componentName,
+                      componentAttributes,
+                      targetElement,
+                      function (cmp){
+                        console.log('lightning component created new 2222');
+                      }
+              );
+            },
+            lightningEndpoint,
+            authToken
+    );
+
+
+  </script>
+
+
+</html>
